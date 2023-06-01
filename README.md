@@ -34,3 +34,9 @@ También está disponible la documentación con redoc
 ```
 http://127.0.0.1:8000/redoc
 ```
+
+# Métodos HTTP
+- POST: Para crear datos
+- GET: Para leer datos
+- PUT: Para actualizar datos
+- DELETE: Para eliminar datos
