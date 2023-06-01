@@ -17,3 +17,9 @@ pip install fastapi
 ```
 pip install uvicorn
 ```
+
+# Correr el servidor
+Para correr el servidor nombramos el archivo, le agregamos dos puntos y seguido el nombre de la instancia de FastAPI
+```
+uvicorn main:app --reload
+```
