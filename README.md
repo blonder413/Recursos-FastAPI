@@ -39,4 +39,5 @@ http://127.0.0.1:8000/redoc
 - POST: Para crear datos
 - GET: Para leer datos
 - PUT: Para actualizar datos
+- PATCH: Para actualizar un solo campo
 - DELETE: Para eliminar datos
