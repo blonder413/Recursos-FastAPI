@@ -23,3 +23,14 @@ Para correr el servidor nombramos el archivo, le agregamos dos puntos y seguido 
 ```
 uvicorn main:app --reload
 ```
+
+# Documentación
+Automáticamente se crea documentación con Swagger
+```
+http://127.0.0.1:8000/docs
+```
+
+También está disponible la documentación con redoc
+```
+http://127.0.0.1:8000/redoc
+```

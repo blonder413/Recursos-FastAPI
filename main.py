@@ -3,6 +3,9 @@ app = FastAPI()
 
 @app.get("/")
 def inicio():
+    """
+    Esta es la ruta inicial del proyecto
+    """
     return {"hello": "world"}
 
 
