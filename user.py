@@ -49,3 +49,24 @@ def usuario(id: int):
         return list(usuario)[0]
     except:
         return {"status": 404, "mensaje": "usuario no encontrado"}
+
+@app.post("/usuario/")
+async def usuario(usuario: Usuario):
+    lista_usuarios.append(usuario)
+    return lista_usuarios
+
+@app.put("/usuario/")
+async def usuario(usuario: Usuario):
+    for i, v in enumerate(lista_usuarios):
+        if v.id == usuario.id:
+            lista_usuarios[i] = usuario
+
+    return lista_usuarios
+
+@app.delete("/usuario/{id}")
+async def usuario(id: int):
+    for i, v in enumerate(lista_usuarios):
+        if v.id == id:
+            del(lista_usuarios[i])
+
+    return lista_usuarios
