@@ -1,3 +1,6 @@
 .venv
 __pychache__
 __pychache__/user.cpython-310.pyc
+__pychache__/articulos.cpython-310.pyc
+__pychache__/main.cpython-310.pyc
+*.png
