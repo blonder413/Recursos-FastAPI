@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -24,23 +24,25 @@ def lista_json():
         {"name": "claire", "user": "credfield", "edad": 36}
         ]
 
-@app.get('/usuarios')
+@app.get('/usuarios', response_model=list)
 def usuarios():
     # return Usuario(name="blonder", user="blonder413", edad=413)
     return lista_usuarios
 
 
-@app.get('/usuario/{id}')
+@app.get('/usuario/{id}', response_model=Usuario)
 def usuario(id: int):
     usuario = filter(lambda user: user.id == id, lista_usuarios)
     # return list(usuario)
     try:
         return list(usuario)[0]
     except:
-        return {"status": 404, "mensaje": "usuario no encontrado"}
+        # raise HTTPException(status_code = 204)
+        # raise HTTPException(status_code = 404, detail={"mensaje": "usuario no encontrado", "status": 404})
+        raise HTTPException(status_code = 240, detail={"mensaje": "usuario no encontrado", "status": 240})  # Personalizado
 
 
-@app.get('/usuario/')
+@app.get('/usuario/', response_model=Usuario)
 def usuario(id: int):
     # http://localhost:8000/usuario/?id=1
     usuario = filter(lambda user: user.id == id, lista_usuarios)
@@ -50,7 +52,7 @@ def usuario(id: int):
     except:
         return {"status": 404, "mensaje": "usuario no encontrado"}
 
-@app.post("/usuario/")
+@app.post("/usuario/", status_code=201)
 async def usuario(usuario: Usuario):
     lista_usuarios.append(usuario)
     return lista_usuarios
